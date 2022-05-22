@@ -166,13 +166,12 @@ class _AddPropertyState extends State<AddProperty> {
             ),
             Row(
               children: [
-
                 TextButton(
                   style: ButtonStyle(
                       foregroundColor:
                       MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
+                      MaterialStateProperty.all<Color>(MyTheme.blueBorder),
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)))),
                   onPressed: () async {
@@ -197,7 +196,7 @@ class _AddPropertyState extends State<AddProperty> {
                       foregroundColor:
                       MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
+                      MaterialStateProperty.all<Color>(MyTheme.blueBorder),
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)))),
                   onPressed: ()  {
@@ -219,7 +218,7 @@ class _AddPropertyState extends State<AddProperty> {
                       foregroundColor:
                       MaterialStateProperty.all<Color>(Colors.white),
                       backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blue),
+                      MaterialStateProperty.all<Color>(MyTheme.blueBorder),
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)))),
                   onPressed: () async {},

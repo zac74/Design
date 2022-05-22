@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gam3a/component/components.dart';
+import 'package:gam3a/profile/mytheme.dart';
 import 'package:gam3a/search/SearchScreen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-
 import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(7.0),
         child: Container(
         decoration: BoxDecoration(
-        color: Colors.black,
+        color: MyTheme.blueBorder,
         borderRadius: BorderRadius.circular(12),
         ),
           child:SalomonBottomBar(
@@ -39,14 +39,14 @@ class HomeScreen extends StatelessWidget {
               SalomonBottomBarItem(
                 icon:  Icon(Icons.home),
                 title:  Text("Home"),
-                selectedColor: Colors.blue,
+                selectedColor: Colors.white,
               ),
 
               /// Likes
               SalomonBottomBarItem(
                 icon:  Icon(Icons.favorite_border),
                 title:  Text("Favorites"),
-                selectedColor: Colors.pink,
+                selectedColor: Colors.white,
               ),
 
 
@@ -54,14 +54,14 @@ class HomeScreen extends StatelessWidget {
               SalomonBottomBarItem(
                 icon: const Icon(Icons.add),
                 title: const Text("Add"),
-                selectedColor: Colors.yellow,
+                selectedColor: Colors.white,
               ),
 
               /// Profile
               SalomonBottomBarItem(
                 icon: const Icon(Icons.person),
                 title: const Text("Profile"),
-                selectedColor: Colors.teal,
+                selectedColor: Colors.white,
               ),
 
 
