@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:gam3a/profile/mytheme.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -10,19 +10,20 @@ class AddProperty extends StatefulWidget {
 }
 class _AddPropertyState extends State<AddProperty> {
 
-  // CollectionReference property = FirebaseFirestore.instance.collection('property');
-  // final databaseRef = FirebaseFirestore.instance;
+   CollectionReference property = FirebaseFirestore.instance.collection('property');
+   final databaseRef = FirebaseFirestore.instance;
   final ImagePicker _picker = ImagePicker();
   late PickedFile _imageFile;
 
-  String? Title;
-  String? Details;
-  String? Location;
-  String? Bedroom;
-  String? Bathroom;
-  String? Area;
-  String? PhoneNumber;
-  String? Price;
+   String? Title;
+   String? Details;
+   String? Location;
+   String? Bedroom;
+   String? Bathroom;
+   String? Area;
+   String? PhoneNumber;
+   String? Price;
+   String? Image;
 
   @override
   void initState()   {
@@ -147,6 +148,18 @@ class _AddPropertyState extends State<AddProperty> {
             ),
             TextFormField(
               onChanged: (value){
+                Image = value ;
+              },
+              decoration: const InputDecoration(
+                icon: Icon(Icons.image),
+                labelText: 'Image',
+                hintText: 'Enter image path',
+                errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red, width: 5)),
+              ),
+            ),
+            TextFormField(
+              onChanged: (value){
                 Price = value ;
               },
               keyboardType: const TextInputType.numberWithOptions(),
@@ -161,6 +174,7 @@ class _AddPropertyState extends State<AddProperty> {
             const SizedBox(
               height: 10,
             ),
+
             const SizedBox(
               height: 10,
             ),
@@ -175,16 +189,17 @@ class _AddPropertyState extends State<AddProperty> {
                       shape: MaterialStateProperty.all(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)))),
                   onPressed: () async {
-                    // await property.add({
-                    //   'Title' : Title,
-                    //   'Details' : Details,
-                    //   'Location' : Location,
-                    //   'Bedroom' : Bedroom,
-                    //   'Bathroom' : Bathroom,
-                    //   'Area' : Area,
-                    //   'PhoneNumber' : PhoneNumber,
-                    //   'Price' : Price,
-                    // }).then((value) => print("Property Added")).catchError((error) => print("Faild : $error"));
+                    await property.add({
+                      'Title' : Title,
+                      'Details' : Details,
+                      'Location' : Location,
+                      'Bedroom' : Bedroom,
+                      'Bathroom' : Bathroom,
+                      'Area' : Area,
+                      'PhoneNumber' : PhoneNumber,
+                      'Price' : Price,
+                      'image' : Image,
+                    }).then((value) => print("Property Added")).catchError((error) => print("Faild : $error"));
                   },
                   child: Text('Add'),
                 ),
